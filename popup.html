@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .header p {
+      margin: 0;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    
+    .feature-list {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .feature-icon {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    
+    .settings {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .settings h3 {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .setting-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .setting-label {
+      font-size: 12px;
+      flex: 1;
+    }
+    
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .toggle.active {
+      background: #4CAF50;
+    }
+    
+    .toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    
+    .toggle.active::after {
+      transform: translateX(20px);
+    }
+    
+    .shortcuts {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .shortcuts h3 {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .shortcut-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+    
+    .shortcut-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .shortcut-key {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-top: 15px;
+      background: rgba(76, 175, 80, 0.2);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎬 Instagram Video Enhancer</h1>
+    <p>Enhance your Instagram video experience</p>
+  </div>
+  
+  <div class="feature-list">
+    <div class="feature-item">
+      <span class="feature-icon">↻</span>
+      <span>Rotate videos in any direction</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⛶</span>
+      <span>Full-screen viewing without quality loss</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔍</span>
+      <span>Zoom and crop controls</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⬇</span>
+      <span>Download Instagram videos</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⌨</span>
+      <span>Keyboard shortcuts support</span>
+    </div>
+  </div>
+  
+  <div class="settings">
+    <h3>Settings</h3>
+    <div class="setting-item">
+      <span class="setting-label">Auto-enhance videos</span>
+      <div class="toggle" id="autoEnhance"></div>
+    </div>
+    <div class="setting-item">
+      <span class="setting-label">Keyboard shortcuts</span>
+      <div class="toggle active" id="keyboardShortcuts"></div>
+    </div>
+  </div>
+  
+  <div class="shortcuts">
+    <h3>Keyboard Shortcuts</h3>
+    <div class="shortcut-item">
+      <span>Rotate right</span>
+      <span class="shortcut-key">R</span>
+    </div>
+    <div class="shortcut-item">
+      <span>Rotate left</span>
+      <span class="shortcut-key">Shift + R</span>
+    </div>
+    <div class="shortcut-item">
+      <span>Toggle fullscreen</span>
+      <span class="shortcut-key">F</span>
+    </div>
+    <div class="shortcut-item">
+      <span>Toggle crop mode</span>
+      <span class="shortcut-key">C</span>
+    </div>
+    <div class="shortcut-item">
+      <span>Play/Pause</span>
+      <span class="shortcut-key">Space</span>
+    </div>
+    <div class="shortcut-item">
+      <span>Close enhancer</span>
+      <span class="shortcut-key">Esc</span>
+    </div>
+  </div>
+  
+  <div class="status" id="status">
+    Ready to enhance Instagram videos!
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
